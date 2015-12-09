@@ -28,15 +28,13 @@ def index():
 def is_open(time_now, day):
 
     hours = {
-        'open': None,
-        'close': None
+        'open': OPEN,
+        'close': time(00, 00)
     }
     if day in range(5):  # Monday - Thursday
-        hours['open'] = OPEN
         hours['close'] = M_TH_CLOSE
 
     if day == 5:  # Friday hours
-        hours['open'] = OPEN
         hours['close'] = F_CLOSE
 
     ret = False
