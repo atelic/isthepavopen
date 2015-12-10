@@ -18,11 +18,16 @@ F_CLOSE = time(18, 30)
 def index():
     time_now = datetime.now().time()
     day = datetime.today().weekday()
+    close = False
+    if day in range(0, 4):
+        close = M_TH_CLOSE
+    if day == 4:
+        close = F_CLOSE
 
     open = is_open(time_now, day)
     meal = is_meal(time_now, day)
 
-    return render_template('index.html', open=open, meal=meal)
+    return render_template('index.html', open=open, meal=meal, close=close)
 
 
 def is_open(time_now, day):
