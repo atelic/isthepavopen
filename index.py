@@ -29,7 +29,7 @@ def index():
 
             hour_open = is_open(time_now, day, [OPEN, M_TH_CLOSE, F_CLOSE])
             meal = is_meal(time_now, day, [OPEN, M_TH_CLOSE, F_CLOSE, ME_CLOSE])
-
+            print([OPEN, M_TH_CLOSE, F_CLOSE])
             i_am_bad_at_names[location] = {
                 'open': hour_open,
                 'meal': meal,
@@ -66,8 +66,8 @@ def is_open(time_now, day, possible_hours):
 def is_meal(time_now, day, possible_hours):
     """ Monday - Thursday 4:00pm - 8:00pm"""
     hours = {
-        'open': possible_hours[3],
-        'close': possible_hours[1]
+        'open': possible_hours[0],
+        'close': possible_hours[3]
     }
     meal = False
     weekday = day not in range(4, 7)
