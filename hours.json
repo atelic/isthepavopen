@@ -1,0 +1,14 @@
+{
+    "The Pav": {
+        "open": [10, 30],
+        "m_th_close": [20, 0],
+        "f_close": [18, 30],
+        "me_close": [16, 0]
+    },
+    "The Castle": {
+        "open": [8, 30],
+        "m_th_close": [23,0],
+        "f_close": [16, 0],
+        "me_close": [16, 0]
+    }
+}

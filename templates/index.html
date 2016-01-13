@@ -1,22 +1,30 @@
 <!doctype html>
-<title>Is The Pav Open?</title>
-<center>
-    <h1>Is the Pav open?</h1>
-    {% if open  %}
-    <h1 style="color: green">YES</h1>
-      {% if close %}
-        <p>Closes at {{ close }}</p>
-      {% endif %}
-    {% else %}
-      <h1 style="color: red"">NO</h1>
-    {% endif %}
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+</head>
+<html>
+    <body>
+        <center class="container" >
+            {% for location, info in location_dict.items() %}
+              <h1>Is the {{ location }} open?</h1>
+              {% if info['open']  %}
+                <h1 style="color: green">YES</h1>
 
-    <h1>Meal exchange?</h1>
-    {% if meal %}
-      <h1 style="color: green">YES</h1>
-    {% else %}
-      <h1 style="color: red"">NO</h1>
-    {% endif %}
+                <h2>Meal exchange?</h2>
+                {% if info['meal'] %}
+                  <h1 style="color: green">YES</h1>
+                {% else %}
+                  <h1 style="color: red"">NO</h1>
+                {% endif %}
 
-    <a href="{{ url_for('.hours') }}">View Hours</a>
-</center>
+              {% if info['close'] %}
+                 <p>Closes at {{ info['close'] }}</p>
+              {% endif %}
+              {% else %}
+                <h1 style="color: red"">NO</h1>
+              {% endif %}
+
+            {% endfor %}
+        </center>
+    </body>
+</html>
