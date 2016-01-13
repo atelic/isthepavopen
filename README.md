@@ -7,3 +7,8 @@ A *very* complex Flask app that lets you know if [the Pav](https://virginia.camp
 $ pip install -r requirements.txt
 $ python index.py
 ```
+
+## Running tests
+```bash
+$ nosetests test.py
+```
